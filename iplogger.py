@@ -27,7 +27,7 @@ def get_ip():
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	try:
 		# doesn't even have to be reachable
-		s.connect(('10.255.255.255', 1))
+		s.connect(('192.168.178.25', 1))
 		IP = s.getsockname()[0]
 	except:
 		IP = '127.0.0.1'
@@ -47,7 +47,7 @@ def clear():
 # Where all the magic happens
 def function_1():
 	# looking for UDP packets sent to port 37005 Apex Legends servers 
-	x = sniff(filter="udp and portrange 37005-38515", prn=pc, store=1, count=1) # Do not capture local IP UDP it captures local UDP packets
+	x = sniff(filter="udp and portrange 3074-3075", prn=pc, store=1, count=1) # Do not capture local IP UDP it captures local UDP packets
 	y = x[0][IP].src
 	z = x[0][IP].dst
 	global dest_ip
